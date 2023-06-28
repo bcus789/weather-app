@@ -31,3 +31,9 @@ let weather = {
 sbmtBtn.addEventListener("click", function(){
     weather.fetchWeather(cityInput.value)
 })
+
+cityInput.addEventListener("keyup", function(event){
+    if (event.key == "Enter"){
+        weather.fetchWeather(cityInput.value)
+    }
+})
