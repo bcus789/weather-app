@@ -1,3 +1,5 @@
+const cityInput = document.getElementById("city-input")
+const sbmtBtn = document.querySelector(".search-btn")
 let weather = {
     "apiKey": "5ef8df34b119e7453728c4d5b53d19b2",
     fetchWeather: function(city){
@@ -16,7 +18,16 @@ let weather = {
         const {temp, humidity} = data.main
         const {speed} = data.wind
         console.log(name,icon,description,temp,humidity,speed)
+        document.querySelector(".city").innerText = name
+        document.querySelector(".temp").innerText = temp
+        document.querySelector(".description").innerText = description
+        document.querySelector(".humidity").innerText = humidity + "%"
+        document.querySelector(".wind").innerText = speed + " mph"
     }
 }
 
-weather.fetchWeather("sacramento")
+
+
+sbmtBtn.addEventListener("click", function(){
+    weather.fetchWeather(cityInput.value)
+})
